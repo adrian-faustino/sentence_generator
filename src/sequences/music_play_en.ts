@@ -37,7 +37,7 @@ export default (): string => {
     ..._artist_,
     ..._song_,
     ..._album_,
-    ..._genre_.map((genre) => `${genre} music`),
+    ..._genre_.map((genre) => `${genre} ${grammar.optional("music")}`),
   ];
 
   // Return a randomly generated sentence based on the arrays above

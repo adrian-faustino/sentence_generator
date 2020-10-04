@@ -2,6 +2,7 @@
 import { _artist_, _song_, _album_, _genre_ } from "../rulenames/music";
 /* Util */
 import array from "../util/arrayUtils";
+import grammar from "../util/grammarUtils";
 
 // ~ga kiktai
 const desire_verbs_base: string[] = ["kiki", "nagashi"];
@@ -55,7 +56,7 @@ export default () => {
     ..._artist_,
     ..._song_,
     ..._album_,
-    ..._genre_.map((genre) => `${genre} music`),
+    ..._genre_.map((genre) => `${genre} ${grammar.optional("kei")}`),
   ];
 
   // Return a randomly generated sentence based on the arrays above
