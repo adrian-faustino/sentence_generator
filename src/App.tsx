@@ -21,6 +21,7 @@ function App() {
     return arr[index];
   };
 
+  // I want to, I would like to ~
   const desire_verbs: string[] = ["want", "would like"];
   const play_verbs_infinitive: string[] = ["listen to", "hear"];
 
@@ -30,8 +31,20 @@ function App() {
     return `I ${_desire_verb} to ${_play_verb_infinitive}`;
   };
 
+  // Play me, put on for me ~
+  const polite_request_verbs: string[] = ["could", "would", "can"];
+  const play_verbs_imperative: string[] = ["play", "put on"];
+  const play_request_imperative = (): string => {
+    const _polite_request_verb = getRndWord(polite_request_verbs);
+    const _play_verb_imperative = getRndWord(play_verbs_imperative);
+    const _for = getRndWord(["for", ""]);
+    const _me = "me";
+    return `${_polite_request_verb} you ${_play_verb_imperative} ${_for} ${_me}`;
+  };
+
   const music_play = () => {
-    setSentence(play_request_infinitive());
+    const rnd = [play_request_infinitive(), play_request_imperative()];
+    setSentence(getRndWord(rnd));
   };
   return (
     <div className="App">
