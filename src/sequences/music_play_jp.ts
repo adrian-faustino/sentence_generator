@@ -4,10 +4,10 @@ import { _artist_, _song_, _album_, _genre_ } from "../rulenames/music";
 import array from "../util/arrayUtils";
 
 // ~ga kiktai
-const desire_verbs: string[] = ["kikitai", "nagashitai"];
+const desire_verbs_base: string[] = ["kiki", "nagashi"];
 const play_request_desire_form = (): string => {
-  const _desire_verb: string = array.rndElem(desire_verbs);
-  return `ga ${_desire_verb}`;
+  const _desire_verb_base: string = array.rndElem(desire_verbs_base);
+  return `ga ${_desire_verb_base} tai`;
 };
 
 // ~nagashite
@@ -18,17 +18,28 @@ const request_te_ending: string[] = [
   "kure",
   "hoshii",
 ];
-const request_base_ending: string[] = ["ro", "na", "nasai"];
+const request_base_ending: string[] = ["na", "nasai"];
 const play_verbs_imperative: string[] = [
   "nagashite",
   "nagase",
-  "nagashite <request_te_ending>",
-  "nagashi <request_base_ending>",
+  "nagashite +++request_te_ending",
+  "nagashi +++request_base_ending",
 ];
 const play_request_imperative_form = (): string => {
-  const _play_verb_imperative: string = array.rndElem(play_verbs_imperative);
-  if (_play_verb_imperative.includes("<")) {
-    console.log("uyes");
+  let _play_verb_imperative: string = array.rndElem(play_verbs_imperative);
+
+  if (_play_verb_imperative.includes("+++")) {
+    console.log("Popped!");
+    let [base, ending_type]: string[] = _play_verb_imperative.split("+++");
+
+    switch (ending_type) {
+      case "request_te_ending":
+        _play_verb_imperative = base + array.rndElem(request_te_ending);
+        break;
+      case "request_base_ending":
+        _play_verb_imperative = base + array.rndElem(request_base_ending);
+        break;
+    }
   }
 
   return `wo ${_play_verb_imperative}`;

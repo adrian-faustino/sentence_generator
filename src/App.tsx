@@ -30,15 +30,15 @@ function App() {
       {/* Generated sentences */}
       <h3>English</h3>
       <div>
-        {sentences_en.map((sentence_en) => (
-          <p>{sentence_en}</p>
+        {sentences_en.map((sentence_en, i) => (
+          <p key={`${sentence_en}-${i}-en`}>{sentence_en}</p>
         ))}
       </div>
 
       <h3>Japanese</h3>
       <div>
-        {sentences_jp.map((sentence_jp) => (
-          <p>{sentence_jp}</p>
+        {sentences_jp.map((sentence_jp, i) => (
+          <p key={`${sentence_jp}-${i}-jp`}>{sentence_jp}</p>
         ))}
       </div>
     </div>
