@@ -42,13 +42,29 @@ function App() {
     return `${_polite_request_verb} you ${_play_verb_imperative} ${_for} ${_me}`;
   };
 
+  const _artist_: string[] = ["beatles", "radio head", "cake", "pink floyd"];
+  const _song_: string[] = [
+    "comfortably numb",
+    "paranoid android",
+    "let it be",
+    "hey jude",
+  ];
+
   const music_play = () => {
-    const rnd = [play_request_infinitive(), play_request_imperative()];
-    setSentence(getRndWord(rnd));
+    const rnd_request: string[] = [
+      play_request_infinitive(),
+      play_request_imperative(),
+    ];
+    const rnd_artist_or_song: string[] = [..._artist_, ..._song_];
+
+    const sentence: string = `${getRndWord(rnd_request)} ${getRndWord(
+      rnd_artist_or_song
+    )}`;
+    setSentence(sentence);
   };
   return (
     <div className="App">
-      <h3>setup</h3>
+      <h3>Context-free grammar sentence generator</h3>
 
       <p>{sentence}</p>
 
