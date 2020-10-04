@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import "./App.css";
 /* Sequences */
 import music_play_en from "./sequences/music_play_en";
+import music_play_jp from "./sequences/music_play_jp";
 
 function App() {
   /* State */
-  const [sentences, setSentences] = useState<string[]>([]);
+  const [sentences_en, setSentences_en] = useState<string[]>([]);
+  const [sentences_jp, setSentences_jp] = useState<string[]>([]);
 
   const handleGenerateSentence = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     const sequence_en = music_play_en();
-    setSentences((state) => [sequence_en, ...state]);
+    setSentences_en((state) => [sequence_en, ...state]);
+
+    const sequence_jp = music_play_jp();
+    setSentences_jp((state) => [sequence_jp, ...state]);
   };
 
   return (
@@ -23,9 +28,17 @@ function App() {
       <button onClick={handleGenerateSentence}>Generate sentence</button>
 
       {/* Generated sentences */}
+      <h3>English</h3>
       <div>
-        {sentences.map((sentence) => (
-          <p>{sentence}</p>
+        {sentences_en.map((sentence_en) => (
+          <p>{sentence_en}</p>
+        ))}
+      </div>
+
+      <h3>Japanese</h3>
+      <div>
+        {sentences_jp.map((sentence_jp) => (
+          <p>{sentence_jp}</p>
         ))}
       </div>
     </div>
