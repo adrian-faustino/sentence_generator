@@ -2,6 +2,7 @@
 import { _artist_, _song_, _album_, _genre_ } from "../rulenames/music";
 /* Util */
 import array from "../util/arrayUtils";
+import grammar from "../util/grammarUtils";
 
 // BEGIN: Generate "I want to, I would like to ~"
 const desire_verbs: string[] = ["want", "would like"];
@@ -19,7 +20,8 @@ const play_verbs_imperative: string[] = ["play", "put on"];
 const play_request_imperative = (): string => {
   const _polite_request_verb = array.rndElem(polite_request_verbs);
   const _play_verb_imperative = array.rndElem(play_verbs_imperative);
-  return `${_polite_request_verb} you ${_play_verb_imperative}`;
+  const optional_politeness = grammar.optional(`${_polite_request_verb} you`);
+  return `${optional_politeness} ${_play_verb_imperative}`;
 };
 // END: Generate "Play me, put on for me ~"
 
