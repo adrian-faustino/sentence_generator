@@ -18,9 +18,8 @@ const request_te_ending: string[] = [
   "kure",
   "hoshii",
 ];
-const request_base_ending: string[] = ["na", "nasai"];
+const request_base_ending: string[] = ["te", "na", "nasai"];
 const play_verbs_imperative: string[] = [
-  "nagashite",
   "nagase",
   "nagashite +++request_te_ending",
   "nagashi +++request_base_ending",
@@ -29,7 +28,6 @@ const play_request_imperative_form = (): string => {
   let _play_verb_imperative: string = array.rndElem(play_verbs_imperative);
 
   if (_play_verb_imperative.includes("+++")) {
-    console.log("Popped!");
     let [base, ending_type]: string[] = _play_verb_imperative.split("+++");
 
     switch (ending_type) {
