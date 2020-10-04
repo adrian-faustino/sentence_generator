@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 /* Util */
 import math from "./util/mathUtils";
+/* Constants */
+import { _artist_, _song_, _album_, _genre_ } from "./constants/rulenames";
 
 function App() {
   /* State */
@@ -38,29 +40,6 @@ function App() {
     return `${_polite_request_verb} you ${_play_verb_imperative}`;
   };
 
-  // Rulenames
-  const _artist_: string[] = ["beatles", "radio head", "cake", "pink floyd"];
-  const _song_: string[] = [
-    "comfortably numb",
-    "paranoid android",
-    "let it be",
-    "hey jude",
-  ];
-  const _album_: string[] = [
-    "ummagumma",
-    "abbey road",
-    "in rainbows",
-    "motorcade of generosity",
-  ];
-  const _genre_: string[] = [
-    "jazz",
-    "blues",
-    "classical",
-    "edm",
-    "country",
-    "pop",
-  ];
-
   // Main
   const music_play = () => {
     const rnd_request: string[] = [
@@ -77,7 +56,7 @@ function App() {
     const sentence: string = `${getRndWord(rnd_request)} ${getRndWord(
       rnd_subject
     )}`;
-    setSentences((state) => [...state, sentence]);
+    setSentences((state) => [sentence, ...state]);
   };
   return (
     <div className="App">
