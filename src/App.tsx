@@ -5,9 +5,7 @@ import math from "./util/mathUtils";
 
 function App() {
   /* State */
-  const [sentence, setSentence] = useState<string>(
-    "Click the button to generate a sentence!"
-  );
+  const [sentences, setSentences] = useState<string[]>([]);
 
   const handleGenerateSentence = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -73,21 +71,27 @@ function App() {
       ..._artist_,
       ..._song_,
       ..._album_,
-      ..._genre_,
+      ..._genre_.map((genre) => `${genre} music`),
     ];
 
     const sentence: string = `${getRndWord(rnd_request)} ${getRndWord(
       rnd_subject
     )}`;
-    setSentence(sentence);
+    setSentences((state) => [...state, sentence]);
   };
   return (
     <div className="App">
       <h3>Context-free grammar sentence generator</h3>
 
-      <p>{sentence}</p>
-
+      {/* Generate button */}
       <button onClick={handleGenerateSentence}>Generate sentence</button>
+
+      {/* Generated sentences */}
+      <div>
+        {sentences.map((sentence) => (
+          <p>{sentence}</p>
+        ))}
+      </div>
     </div>
   );
 }
