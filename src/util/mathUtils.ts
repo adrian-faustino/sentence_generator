@@ -5,6 +5,12 @@ const getRandomIntInclusive = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+const getRndArrayIndex = (arr: any[]): number => {
+  const index = getRandomIntInclusive(0, arr.length - 1);
+  return index;
+};
+
 export default {
   rndInt: getRandomIntInclusive,
+  rndIndex: getRndArrayIndex,
 };
