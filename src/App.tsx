@@ -37,11 +37,10 @@ function App() {
   const play_request_imperative = (): string => {
     const _polite_request_verb = getRndWord(polite_request_verbs);
     const _play_verb_imperative = getRndWord(play_verbs_imperative);
-    const _for = getRndWord(["for", ""]);
-    const _me = "me";
-    return `${_polite_request_verb} you ${_play_verb_imperative} ${_for} ${_me}`;
+    return `${_polite_request_verb} you ${_play_verb_imperative}`;
   };
 
+  // Rulenames
   const _artist_: string[] = ["beatles", "radio head", "cake", "pink floyd"];
   const _song_: string[] = [
     "comfortably numb",
@@ -49,16 +48,36 @@ function App() {
     "let it be",
     "hey jude",
   ];
+  const _album_: string[] = [
+    "ummagumma",
+    "abbey road",
+    "in rainbows",
+    "motorcade of generosity",
+  ];
+  const _genre_: string[] = [
+    "jazz",
+    "blues",
+    "classical",
+    "edm",
+    "country",
+    "pop",
+  ];
 
+  // Main
   const music_play = () => {
     const rnd_request: string[] = [
       play_request_infinitive(),
       play_request_imperative(),
     ];
-    const rnd_artist_or_song: string[] = [..._artist_, ..._song_];
+    const rnd_subject: string[] = [
+      ..._artist_,
+      ..._song_,
+      ..._album_,
+      ..._genre_,
+    ];
 
     const sentence: string = `${getRndWord(rnd_request)} ${getRndWord(
-      rnd_artist_or_song
+      rnd_subject
     )}`;
     setSentence(sentence);
   };
