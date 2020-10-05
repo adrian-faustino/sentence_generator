@@ -6,7 +6,7 @@ import music_play_en from "./sequences/music_play_en";
 import music_play_jp from "./sequences/music_play_jp";
 import music_play_jp_romaji from "./sequences/music_play_jp_romaji";
 /* Components */
-import { SequenceCard } from "./components";
+import { Sequences, SequenceCard } from "./components";
 /* Constants */
 import { en, jp, jp_romaji, LANGUAGES } from "./constants/UIconstants";
 
