@@ -48,8 +48,18 @@ function App() {
 
       {/* Controls */}
       <div className="App__lang-btns-container">
-        <button onClick={handleChangeLang}>English</button>
-        <button onClick={handleChangeLang}>Japanese</button>
+        <button
+          className={lang === `English` ? "--active" : ""}
+          onClick={handleChangeLang}
+        >
+          English
+        </button>
+        <button
+          className={lang === `Japanese` ? "--active" : ""}
+          onClick={handleChangeLang}
+        >
+          Japanese
+        </button>
       </div>
       <div className="App__main-control-btns-container">
         <button onClick={handleGenerateSentence}>Generate sentence</button>
