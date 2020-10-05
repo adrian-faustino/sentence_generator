@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./App.css";
+/* Style */
+import "./App.scss";
 /* Sequences */
 import music_play_en from "./sequences/music_play_en";
 import music_play_jp from "./sequences/music_play_jp";
@@ -46,11 +47,11 @@ function App() {
       <h3>Context-free grammar sentence generator</h3>
 
       {/* Controls */}
-      <div>
+      <div className="App__lang-btns-container">
         <button onClick={handleChangeLang}>English</button>
         <button onClick={handleChangeLang}>Japanese</button>
       </div>
-      <div>
+      <div className="App__main-control-btns-container">
         <button onClick={handleGenerateSentence}>Generate sentence</button>
         <button onClick={handleClear}>Clear</button>
       </div>

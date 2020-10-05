@@ -1,0 +1,12 @@
+.SequenceCard {
+  max-width: 400px;
+  padding: 2px 0;
+  margin: 10px auto;
+  background: lightblue;
+  border-radius: 5px;
+  box-shadow: 0 0 2px black;
+
+  &__sentence {
+    font-weight: 500;
+  }
+}

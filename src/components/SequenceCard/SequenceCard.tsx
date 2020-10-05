@@ -1,4 +1,6 @@
 import React from "react";
+/* Styles */
+import "./SequenceCard.scss";
 
 interface ISequenceCardProps {
   sentence: string;
@@ -6,8 +8,8 @@ interface ISequenceCardProps {
 
 const SequenceCard: React.FC<ISequenceCardProps> = ({ sentence }) => {
   return (
-    <div>
-      <h3>{sentence}</h3>
+    <div className="SequenceCard">
+      <p className="SequenceCard__sentence">{sentence}</p>
     </div>
   );
 };
