@@ -5,25 +5,25 @@ import array from "../util/arrayUtils";
 import grammar from "../util/grammarUtils";
 
 // ~ga kiktai
-const desire_verbs_base: string[] = ["kiki", "nagashi"];
+const desire_verbs_base: string[] = ["聞き", "流し"];
 const play_request_desire_form = (): string => {
   const _desire_verb_base: string = array.rndElem(desire_verbs_base);
-  return `ga ${_desire_verb_base} tai`;
+  return `が${_desire_verb_base}たい`;
 };
 
 // ~nagashite
 const request_te_ending: string[] = [
-  "kudasai",
-  "kureru",
-  "kurenai",
-  "kure",
-  "hoshii",
+  "ください",
+  "くれる",
+  "くれない",
+  "くれ",
+  "ほしい",
 ];
-const request_base_ending: string[] = ["te", "na", "nasai"];
+const request_base_ending: string[] = ["て", "な", "なさい"];
 const play_verbs_imperative: string[] = [
-  "nagase",
-  "nagashite +++request_te_ending",
-  "nagashi +++request_base_ending",
+  "流せ",
+  "流して+++request_te_ending",
+  "流し+++request_base_ending",
 ];
 const play_request_imperative_form = (): string => {
   let _play_verb_imperative: string = array.rndElem(play_verbs_imperative);
@@ -41,7 +41,7 @@ const play_request_imperative_form = (): string => {
     }
   }
 
-  return `wo ${_play_verb_imperative}`;
+  return `を${_play_verb_imperative}`;
 };
 
 export default () => {
@@ -56,11 +56,11 @@ export default () => {
     ..._artist_,
     ..._song_,
     ..._album_,
-    ..._genre_.map((genre) => `${genre} ${grammar.optional("kei")}`),
+    ..._genre_.map((genre) => `${genre}${grammar.optional("の曲")}`),
   ];
 
   // Return a randomly generated sentence based on the arrays above
-  const sentence: string = `${array.rndElem(rnd_subject)} ${array.rndElem(
+  const sentence: string = `${array.rndElem(rnd_subject)}${array.rndElem(
     rnd_request
   )}`;
   return sentence;
