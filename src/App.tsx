@@ -3,6 +3,8 @@ import "./App.css";
 /* Sequences */
 import music_play_en from "./sequences/music_play_en";
 import music_play_jp from "./sequences/music_play_jp";
+/* Components */
+import { SequenceCard } from "./components";
 
 function App() {
   /* State */
@@ -58,7 +60,10 @@ function App() {
       {lang === "English" && (
         <div>
           {sentences_en.map((sentence_en, i) => (
-            <p key={`${sentence_en}-${i}-en`}>{sentence_en}</p>
+            <SequenceCard
+              key={`${sentence_en}-${i}-en`}
+              sentence={sentence_en}
+            />
           ))}
         </div>
       )}
@@ -66,7 +71,10 @@ function App() {
       {lang === "Japanese" && (
         <div>
           {sentences_jp.map((sentence_jp, i) => (
-            <p key={`${sentence_jp}-${i}-jp`}>{sentence_jp}</p>
+            <SequenceCard
+              key={`${sentence_jp}-${i}-jp`}
+              sentence={sentence_jp}
+            />
           ))}
         </div>
       )}
