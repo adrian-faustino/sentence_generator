@@ -6,13 +6,13 @@ import music_play_en from "./sequences/music_play_en";
 import music_play_jp from "./sequences/music_play_jp";
 import music_play_jp_romaji from "./sequences/music_play_jp_romaji";
 /* Components */
-import { Sequences, SequenceCard } from "./components";
+import { SequenceCard } from "./components";
 /* Constants */
 import { en, jp, jp_romaji, LANGUAGES } from "./constants/UIconstants";
 
 function App() {
   /* State */
-  const [lang, setLang] = useState<string>("English");
+  const [lang, setLang] = useState<string>(en);
   const [sentences_en, setSentences_en] = useState<string[]>([]);
   const [sentences_jp, setSentences_jp] = useState<string[]>([]);
   const [sentences_jp_romaji, setSentences_jp_romaji] = useState<string[]>([]);
@@ -22,11 +22,11 @@ function App() {
   ) => {
     e.preventDefault();
     switch (lang) {
-      case "English":
+      case en:
         return setSentences_en((state) => [music_play_en(), ...state]);
-      case "Japanese":
+      case jp:
         return setSentences_jp((state) => [music_play_jp(), ...state]);
-      case "Japanese (Romaji)":
+      case jp_romaji:
         return setSentences_jp_romaji((state) => [
           music_play_jp_romaji(),
           ...state,
@@ -44,11 +44,11 @@ function App() {
   const handleClear = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     switch (lang) {
-      case "English":
+      case en:
         return setSentences_en([]);
-      case "Japanese":
+      case jp:
         return setSentences_jp([]);
-      case "Japanese (Romaji)":
+      case jp_romaji:
         return setSentences_jp_romaji([]);
     }
   };
@@ -82,7 +82,7 @@ function App() {
 
       {/* Generated sentences */}
       <h3>{lang}</h3>
-      {lang === "English" && (
+      {lang === en && (
         <div>
           {sentences_en.map((sentence_en, i) => (
             <SequenceCard
@@ -93,7 +93,7 @@ function App() {
         </div>
       )}
 
-      {lang === "Japanese" && (
+      {lang === jp && (
         <div>
           {sentences_jp.map((sentence_jp, i) => (
             <SequenceCard
@@ -104,7 +104,7 @@ function App() {
         </div>
       )}
 
-      {lang === "Japanese (Romaji)" && (
+      {lang === jp_romaji && (
         <div>
           {sentences_jp_romaji.map((sentence_jp_romaji, i) => (
             <SequenceCard
