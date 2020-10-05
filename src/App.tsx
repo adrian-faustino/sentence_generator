@@ -7,6 +7,8 @@ import music_play_jp from "./sequences/music_play_jp";
 import music_play_jp_romaji from "./sequences/music_play_jp_romaji";
 /* Components */
 import { SequenceCard } from "./components";
+/* Constants */
+import { en, jp, jp_romaji, LANGUAGES } from "./constants/UIconstants";
 
 function App() {
   /* State */
@@ -57,25 +59,17 @@ function App() {
 
       {/* BEGIN: Controls */}
       <div className="App__lang-btns-container">
-        <button
-          className={lang === `English` ? "--active" : ""}
-          onClick={handleChangeLang}
-        >
-          English
-        </button>
-        <button
-          className={lang === `Japanese` ? "--active" : ""}
-          onClick={handleChangeLang}
-        >
-          Japanese
-        </button>
-        <button
-          className={lang === `Japanese (Romaji)` ? "--active" : ""}
-          onClick={handleChangeLang}
-        >
-          Japanese (Romaji)
-        </button>
+        {LANGUAGES.map((language) => (
+          <button
+            className={lang === language ? "--active" : ""}
+            onClick={handleChangeLang}
+            key={language}
+          >
+            {language}
+          </button>
+        ))}
       </div>
+
       <div className="App__sequence-controls">
         <button className="App__clear-btn" onClick={handleClear}>
           Clear
