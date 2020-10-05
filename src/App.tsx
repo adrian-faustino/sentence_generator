@@ -4,6 +4,7 @@ import "./App.scss";
 /* Sequences */
 import music_play_en from "./sequences/music_play_en";
 import music_play_jp from "./sequences/music_play_jp";
+import music_play_jp_romaji from "./sequences/music_play_jp_romaji";
 /* Components */
 import { SequenceCard } from "./components";
 
@@ -12,6 +13,7 @@ function App() {
   const [lang, setLang] = useState<string>("English");
   const [sentences_en, setSentences_en] = useState<string[]>([]);
   const [sentences_jp, setSentences_jp] = useState<string[]>([]);
+  const [sentences_jp_romaji, setSentences_jp_romaji] = useState<string[]>([]);
 
   const handleGenerateSentence = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -22,6 +24,11 @@ function App() {
         return setSentences_en((state) => [music_play_en(), ...state]);
       case "Japanese":
         return setSentences_jp((state) => [music_play_jp(), ...state]);
+      case "Japanese (Romaji)":
+        return setSentences_jp_romaji((state) => [
+          music_play_jp_romaji(),
+          ...state,
+        ]);
     }
   };
 
@@ -39,6 +46,8 @@ function App() {
         return setSentences_en([]);
       case "Japanese":
         return setSentences_jp([]);
+      case "Japanese (Romaji)":
+        return setSentences_jp_romaji([]);
     }
   };
 
@@ -59,6 +68,12 @@ function App() {
           onClick={handleChangeLang}
         >
           Japanese
+        </button>
+        <button
+          className={lang === `Japanese (Romaji)` ? "--active" : ""}
+          onClick={handleChangeLang}
+        >
+          Japanese (Romaji)
         </button>
       </div>
       <div className="App__sequence-controls">
@@ -90,6 +105,17 @@ function App() {
             <SequenceCard
               key={`${sentence_jp}-${i}-jp`}
               sentence={sentence_jp}
+            />
+          ))}
+        </div>
+      )}
+
+      {lang === "Japanese (Romaji)" && (
+        <div>
+          {sentences_jp_romaji.map((sentence_jp_romaji, i) => (
+            <SequenceCard
+              key={`${sentence_jp_romaji}-${i}-jp-romaji`}
+              sentence={sentence_jp_romaji}
             />
           ))}
         </div>
