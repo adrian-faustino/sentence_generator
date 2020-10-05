@@ -1,0 +1,25 @@
+.Sequences {
+  &__card-container {
+    border: 1px solid grey;
+    background: darken(white, 3%);
+    padding: 0 15px;
+    height: 70vh;
+    overflow-y: scroll;
+    text-align: center;
+    width: 400px;
+    margin: 10px auto;
+
+    animation: fade-in 0.7s;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 70vh;
+  }
+}

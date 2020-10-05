@@ -2,8 +2,15 @@
   width: 100vw;
   text-align: center;
 
+  &__title {
+    display: block;
+    background: rgb(40, 40, 211);
+    color: rgb(230, 230, 230);
+    padding: 12px;
+  }
+
   &__lang-btns-container {
-    margin: 5px auto 20px;
+    margin: 20px auto;
     border-radius: 5px;
     display: flex;
     width: min-content;
@@ -18,10 +25,20 @@
         background: rgb(255, 191, 0);
       }
     }
+
+    /* Add border in between buttons */
+    button + button {
+      border-left: 1px solid grey;
+    }
   }
 
   &__sequence-controls {
-    position: relative;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    width: 400px;
+    margin: 0 auto;
+    background: rgba(128, 128, 128, 0.098);
+    margin-bottom: 10px;
 
     button {
       color: white;
@@ -37,8 +54,6 @@
   }
 
   &__clear-btn {
-    position: absolute;
-    right: 35vw;
     background: lighten(red, 10%);
   }
 }

@@ -6,7 +6,7 @@ import music_play_en from "./sequences/music_play_en";
 import music_play_jp from "./sequences/music_play_jp";
 import music_play_jp_romaji from "./sequences/music_play_jp_romaji";
 /* Components */
-import { SequenceCard } from "./components";
+import { Sequences } from "./components";
 /* Constants */
 import { en, jp, jp_romaji, LANGUAGES } from "./constants/UIconstants";
 
@@ -53,9 +53,22 @@ function App() {
     }
   };
 
+  const currentSentences = () => {
+    switch (lang) {
+      case en:
+        return sentences_en;
+      case jp:
+        return sentences_jp;
+      case jp_romaji:
+        return sentences_jp_romaji;
+      default:
+        return [""];
+    }
+  };
+
   return (
     <div className="App">
-      <h3>Context-free grammar sentence generator</h3>
+      <h3 className="App__title">Context-free grammar sentence generator</h3>
 
       {/* BEGIN: Controls */}
       <div className="App__lang-btns-container">
@@ -71,49 +84,18 @@ function App() {
       </div>
 
       <div className="App__sequence-controls">
-        <button className="App__clear-btn" onClick={handleClear}>
-          Clear
-        </button>
         <button className="App__generate-btn" onClick={handleGenerateSentence}>
           Generate sentence
+        </button>
+        <button className="App__clear-btn" onClick={handleClear}>
+          Clear
         </button>
       </div>
       {/* END: Controls */}
 
       {/* Generated sentences */}
       <h3>{lang}</h3>
-      {lang === en && (
-        <div>
-          {sentences_en.map((sentence_en, i) => (
-            <SequenceCard
-              key={`${sentence_en}-${i}-en`}
-              sentence={sentence_en}
-            />
-          ))}
-        </div>
-      )}
-
-      {lang === jp && (
-        <div>
-          {sentences_jp.map((sentence_jp, i) => (
-            <SequenceCard
-              key={`${sentence_jp}-${i}-jp`}
-              sentence={sentence_jp}
-            />
-          ))}
-        </div>
-      )}
-
-      {lang === jp_romaji && (
-        <div>
-          {sentences_jp_romaji.map((sentence_jp_romaji, i) => (
-            <SequenceCard
-              key={`${sentence_jp_romaji}-${i}-jp-romaji`}
-              sentence={sentence_jp_romaji}
-            />
-          ))}
-        </div>
-      )}
+      <Sequences lang={lang} sentences={currentSentences()} />
     </div>
   );
 }
