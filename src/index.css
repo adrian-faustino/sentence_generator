@@ -15,3 +15,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Base Styles */
+
+button {
+  padding: 5px 10px;
+  outline: none;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}

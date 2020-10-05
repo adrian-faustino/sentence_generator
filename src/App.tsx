@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <h3>Context-free grammar sentence generator</h3>
 
-      {/* Controls */}
+      {/* BEGIN: Controls */}
       <div className="App__lang-btns-container">
         <button
           className={lang === `English` ? "--active" : ""}
@@ -61,10 +61,15 @@ function App() {
           Japanese
         </button>
       </div>
-      <div className="App__main-control-btns-container">
-        <button onClick={handleGenerateSentence}>Generate sentence</button>
-        <button onClick={handleClear}>Clear</button>
+      <div className="App__sequence-controls">
+        <button className="App__clear-btn" onClick={handleClear}>
+          Clear
+        </button>
+        <button className="App__generate-btn" onClick={handleGenerateSentence}>
+          Generate sentence
+        </button>
       </div>
+      {/* END: Controls */}
 
       {/* Generated sentences */}
       <h3>{lang}</h3>

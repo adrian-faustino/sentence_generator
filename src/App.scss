@@ -11,10 +11,6 @@
     overflow: hidden;
 
     button {
-      padding: 5px 10px;
-      outline: none;
-      font-size: 16px;
-      border: none;
       margin: -1px;
       transition: all 0.4s;
 
@@ -22,5 +18,27 @@
         background: rgb(255, 191, 0);
       }
     }
+  }
+
+  &__sequence-controls {
+    position: relative;
+
+    button {
+      color: white;
+      border-radius: 3px;
+    }
+  }
+
+  &__generate-btn {
+    display: block;
+    margin: 0 auto;
+    background: blue;
+    transform: scale(1.2);
+  }
+
+  &__clear-btn {
+    position: absolute;
+    right: 35vw;
+    background: lighten(red, 10%);
   }
 }
