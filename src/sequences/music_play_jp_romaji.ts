@@ -5,10 +5,10 @@ import array from "../util/arrayUtils";
 import grammar from "../util/grammarUtils";
 
 // ~ga kiktai
-const desire_verbs_base: string[] = ["kiki", "nagashi"];
+const desire_verbs_base: string[] = ["kiki", "nagashi", "kake"];
 const play_request_desire_form = (): string => {
   const _desire_verb_base: string = array.rndElem(desire_verbs_base);
-  return `ga ${_desire_verb_base} tai`;
+  return `wo ${_desire_verb_base} tai`;
 };
 
 // ~nagashite
@@ -24,6 +24,9 @@ const play_verbs_imperative: string[] = [
   "nagase",
   "nagashite +++request_te_ending",
   "nagashi +++request_base_ending",
+  "kakero",
+  "kakete +++request_te_ending",
+  "kake +++request_base_ending",
 ];
 const play_request_imperative_form = (): string => {
   let _play_verb_imperative: string = array.rndElem(play_verbs_imperative);
@@ -56,7 +59,7 @@ export default () => {
     ..._artist_,
     ..._song_,
     ..._album_,
-    ..._genre_.map((genre) => `${genre} ${grammar.optional("kei")}`),
+    ..._genre_.map((genre) => `${genre} ${grammar.optional("no kyoku")}`),
   ];
 
   // Return a randomly generated sentence based on the arrays above

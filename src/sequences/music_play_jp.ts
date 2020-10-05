@@ -5,10 +5,10 @@ import array from "../util/arrayUtils";
 import grammar from "../util/grammarUtils";
 
 // ~ga kiktai
-const desire_verbs_base: string[] = ["聞き", "流し"];
+const desire_verbs_base: string[] = ["聞き", "流し", "かけ"];
 const play_request_desire_form = (): string => {
   const _desire_verb_base: string = array.rndElem(desire_verbs_base);
-  return `が${_desire_verb_base}たい`;
+  return `を${_desire_verb_base}たい`;
 };
 
 // ~nagashite
@@ -24,6 +24,9 @@ const play_verbs_imperative: string[] = [
   "流せ",
   "流して+++request_te_ending",
   "流し+++request_base_ending",
+  "かけろ",
+  "かけて+++request_te_ending",
+  "かけ+++request_base_ending",
 ];
 const play_request_imperative_form = (): string => {
   let _play_verb_imperative: string = array.rndElem(play_verbs_imperative);
