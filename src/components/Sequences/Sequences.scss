@@ -23,3 +23,12 @@
     height: 70vh;
   }
 }
+
+@media (max-width: 600px) {
+  .Sequences {
+    &__card-container {
+      width: 90vw;
+      margin: 0 auto;
+    }
+  }
+}

@@ -64,3 +64,19 @@
     color: white;
   }
 }
+
+@media (max-width: 600px) {
+  .App {
+    position: relative;
+
+    &__sequence-controls {
+      max-width: 100vw;
+    }
+
+    &__repo-link {
+      position: relative;
+      left: 0;
+      color: blue;
+    }
+  }
+}
