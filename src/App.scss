@@ -56,4 +56,11 @@
   &__clear-btn {
     background: lighten(red, 10%);
   }
+
+  &__repo-link {
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    color: white;
+  }
 }

@@ -96,6 +96,15 @@ function App() {
       {/* Generated sentences */}
       <h3>{lang}</h3>
       <Sequences lang={lang} sentences={currentSentences()} />
+
+      <a
+        className="App__repo-link"
+        href="https://github.com/adrian-faustino/sentence_generator"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Link to repo
+      </a>
     </div>
   );
 }
